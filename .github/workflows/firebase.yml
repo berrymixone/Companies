@@ -25,4 +25,5 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: |
           echo "$FIREBASE_SERVICE_ACCOUNT" > firebase-service-account.json
-          firebase deploy --token "$(cat firebase-service-account.json)"
+          cd firebase # Change to the directory containing firebase.json
+          firebase deploy --token "$(cat ../firebase-service-account.json)"
